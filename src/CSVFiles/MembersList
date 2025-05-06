@@ -1,0 +1,11 @@
+Navn,Medlemsnummer,Fødselsdato,Aktiv/Passiv,Kategori,Restance,Konkurrence/Motionist
+Sofie Hansen,M0001,04-09-2007,Aktiv,Ung,False,Konkurrence
+Victor Madsen,M0002,15-02-1985,Passiv,Voksen,True,Motionist
+Ida Pedersen,M0003,23-11-1954,Aktiv,Pensionist,False,Konkurrence
+William Olsen,M0004,07-07-1999,Aktiv,Voksen,False,Motionist
+Clara Jensen,M0005,30-05-2010,Passiv,Ung,True,Motionist
+Oscar Thomsen,M0006,18-03-1949,Aktiv,Pensionist,True,Konkurrence
+Freja Larsen,M0007,02-12-2004,Aktiv,Ung,False,Konkurrence
+Lucas Nielsen,M0008,12-06-1990,Passiv,Voksen,False,Motionist
+Emilie Andersen,M0009,28-10-1981,Aktiv,Voksen,True,Konkurrence
+Noah Christensen,M0010,09-01-1960,Passiv,Pensionist,False,Motionist
