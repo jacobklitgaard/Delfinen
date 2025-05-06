@@ -35,7 +35,6 @@ public class Main {
 
         memberslist.add(new Membership(name, age, category, active, debt, competitive));
 
-
         for(Membership m : memberslist){
             System.out.println(m);
         }
