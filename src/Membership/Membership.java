@@ -37,14 +37,14 @@ public class Membership extends Member {
 
     @Override
     public String toString() {
-        return "Membership{" +
-                ", category = '" + category + '\'' +
-                ", debt = " + debt +
-                ", competitive = " + competitive +
-                ", name =' " + name + '\'' +
-                ", age = " + age +
-                ", fee = " + fee +
-                ", active = " + active +
+        return "Membership:" +
+                "\n category = '" + category + '\'' +
+                "\n debt = " + debt +
+                "\n competitive = " + competitive +
+                "\n name =' " + name + '\'' +
+                "\n age = " + age +
+                "\n fee = " + fee +
+                "\n active = " + active +
                 '}';
     }
 }
