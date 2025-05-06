@@ -24,7 +24,7 @@ public class CSVMembership {
                     boolean debt = Boolean.parseBoolean(field[4]);
                     boolean competitive = Boolean.parseBoolean(field[5]);
                     //Tilføjer filens data til arraylisten
-                    fromArray.add(new Membership(name, age, category, active, debt, competitive));
+                    fromArray.add(new Membership(name, age, active, debt, competitive));
                 }
             } catch (FileNotFoundException y) {
                 System.out.println("Fil ikke fundet");

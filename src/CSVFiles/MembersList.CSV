@@ -1,5 +1,3 @@
-Name,Age,Category,Active,Debt,Competition
-b,2,voksen,false,false,false
-b,25,ung,true,true,true
-orale,67,pensionist,false,false,false
-jørgen,5,voksen,true,true,true
+
+Sebastian,25,voksen,false,true,false
+Sebastian,25,voksen,true,false,true
