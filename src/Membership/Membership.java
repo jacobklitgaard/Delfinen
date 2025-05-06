@@ -44,7 +44,6 @@ public class Membership extends Member {
                 "\n name =' " + name + '\'' +
                 "\n age = " + age +
                 "\n fee = " + fee +
-                "\n active = " + active +
-                '}';
+                "\n active = " + active;
     }
 }
