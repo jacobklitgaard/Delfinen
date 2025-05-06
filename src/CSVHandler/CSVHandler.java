@@ -1,5 +1,7 @@
 package CSVHandler;
 
+import Membership.Membership;
+
 import java.util.List;
 
 public interface CSVHandler {
@@ -7,5 +9,5 @@ public interface CSVHandler {
     void readCSV(String filepath);
     //Skriver til CSV filen (tilføjer ny data, som et medlem, om medlemmet er aktiv osv.)
     //List<?> betyder at metoden kan tage imod alle former for data.
-    void writeCSV(String filepath, List<?> data);
+    //void writeCSV(String filepath, List<Membership> data);
 }

@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.io.File;
 
 public class CSVCompetition implements CSVHandler {
-
+    //ikke færdig
     @Override
     public void readCSV(String filepath) {
         try {
@@ -25,7 +25,7 @@ public class CSVCompetition implements CSVHandler {
         }
     }
 
-    @Override
+
     public void writeCSV(String filepath, List<?> data) {
         try {
             PrintWriter writer = new PrintWriter(new File("src/CSVFiles/CompetitionResults"));

@@ -46,4 +46,8 @@ public class Membership extends Member {
                 "\n fee = " + fee +
                 "\n active = " + active;
     }
+    //Bruges til at skrive member data til CSV fil
+    public String toCSV() {
+        return name + "," + age + "," + category + "," + active + "," + debt + "," + competitive;
+    }
 }
