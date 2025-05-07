@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 
+
 public class CSVCompetition implements CSVHandler {
     //ikke færdig
     @Override
