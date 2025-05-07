@@ -1,3 +1,8 @@
 
 Sebastian,25,voksen,false,true,false
 Sebastian,25,voksen,true,false,true
+Jacob,42,voksen,true,true,true
+Søren,80,senior,true,false,false
+Jacob,42,Voksen,false,true,true
+Søren,80,Senior,false,true,false
+anoep,25,Voksen,true,false,true

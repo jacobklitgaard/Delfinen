@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class MembersList {
     private final List<Membership> memberslist = new ArrayList<>();
+    private final List<Membership> compMemberslist = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
 
     //opretter metode
@@ -32,6 +33,7 @@ public class MembersList {
         boolean competitive = input.nextBoolean();
 
         memberslist.add(new Membership(name, age, active, debt, competitive));
+
 
         //Her skrives objektet ind i MemberList.CSV filen
         CSVMembership writer = new CSVMembership();

@@ -5,17 +5,18 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 
 public class Results {
-    int time;
-    String discipline;
-    String group;
-    DateFormat competetion;
+    protected String date;
+    protected int time;
+    protected String group;
+    protected String discipline;
 
     
     public Results(int time, String discipline, String group, DateFormat competetion){
         this.time = time;
         this.discipline = discipline;
         this.group = group;
-
+        this.date = date;
+        this.discipline = discipline;
     }
 
     private void disciplines() {

@@ -11,8 +11,8 @@ public class UI {
         while (running) {
             System.out.println("System Menu\n" +
                     "1: Håndtere medlemmer\n" +
-                    "2: \n" +
-                    "3: \n" +
+                    "2: Svømmeresultater\n" +
+                    "3: Økonomi\n" +
                     "4: Luk system.");
             String choice = input.nextLine();
             switch (choice) {
