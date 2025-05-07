@@ -1,22 +1,21 @@
 package Membership;
-
-import java.util.Locale;
-
+//Medlems attributter
 public class Member {
     String name;
     int age;
     double fee;
     boolean active;
-    String agecategory;
+    String ageCategory;
 
     public Member(String name, int age, boolean active) {
         this.name = name;
         this.age = age;
         this.active = active;
         this.fee = calculateFee(age);
-        this.agecategory = calculateCategory(age);
+        this.ageCategory = calculateCategory(age);
     }
 
+    //Getter og setter
     public String getName() {
         return name;
     }
@@ -29,19 +28,20 @@ public class Member {
         return fee;
     }
 
+    // Regner ud hvilken gruppe medlemmet er i
     public String calculateCategory(int age) {
         if (age < 18) {
-            agecategory = "ung";
+            ageCategory = "Ung";
         }
         if (age >= 18) {
-            agecategory = "voksen";
+            ageCategory = "Voksen";
         }
         if (age >= 60) {
-            agecategory = "senior";
+            ageCategory = "Senior";
         }
-        return agecategory;
+        return ageCategory;
     }
-
+    // Regner ud hvad medlemmet skal betale af kontigent
     public double calculateFee(int age){
         if(age < 18) {
             fee = 1000;

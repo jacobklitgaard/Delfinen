@@ -19,10 +19,9 @@ public class CSVMembership {
 
                     String name = field[0];
                     int age = Integer.parseInt(field[1]);
-                    String category = field[2];
-                    boolean active = Boolean.parseBoolean(field[3]);
-                    boolean debt = Boolean.parseBoolean(field[4]);
-                    boolean competitive = Boolean.parseBoolean(field[5]);
+                    boolean active = Boolean.parseBoolean(field[2]);
+                    boolean debt = Boolean.parseBoolean(field[3]);
+                    boolean competitive = Boolean.parseBoolean(field[4]);
                     //Tilføjer filens data til arraylisten
                     fromArray.add(new Membership(name, age, active, debt, competitive));
                 }
@@ -30,7 +29,6 @@ public class CSVMembership {
                 System.out.println("Fil ikke fundet");
             }
         }
-
 
         public void writeCSV(String filepath, List<Membership> data) {
             try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
