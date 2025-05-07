@@ -8,15 +8,12 @@ public class Systemmenu {
     Scanner input = new Scanner(System.in);
 
 
-    public void Cashier () {
+    public void Cashier() {
 
     }
 
-    public void Trainer () {
+    public void Chairman() {
 
-    }
-
-    public void Chairman () {
         MembersList opretMedlem = new MembersList();
         //UI til Formand
         boolean running = true;

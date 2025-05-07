@@ -37,12 +37,12 @@ public class Membership extends Member {
                 "\n Alder: " + age +
                 "\n Kontingent: " + fee +
                 "\n Aktiv: " + active +
-                "\n Kategori: " + agecategory +
+                "\n Kategori: " + ageCategory +
                 "\n Restance: " + debt +
                 "\n Konkurrencesvømmer: " + competitive;
     }
     //Bruges til at skrive member data til CSV fil
     public String toCSV() {
-        return name + "," + age + "," + agecategory + "," + active + "," + debt + "," + competitive;
+        return name + "," + age + "," + ageCategory + "," + active + "," + debt + "," + competitive;
     }
 }
