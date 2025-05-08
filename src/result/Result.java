@@ -1,18 +1,19 @@
-package Results;
+package result;
 
-import Membership.Membership;
+import membership.Membership;
 
-import javax.xml.transform.Result;
 import java.util.ArrayList;
 
-public class Results {
+public class Result {
+    protected Membership member;
     protected String date;
     protected int time;
     protected String group;
     protected String discipline;
 
     
-    public Results(int time, String group, String date, String discipline){
+    public Result(Membership member, int time, String group, String date, String discipline){
+        this.member = member;
         this.time = time;
         this.group = group;
         this.date = date;
@@ -35,9 +36,5 @@ public class Results {
         return discipline;
     }
 
-        private ArrayList<Result> results = new ArrayList<>();
-            public Results(){
-
-            }
 }
 

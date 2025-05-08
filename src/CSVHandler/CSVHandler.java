@@ -1,9 +1,5 @@
 package CSVHandler;
 
-import Membership.Membership;
-
-import java.util.List;
-
 public interface CSVHandler {
     //Læser CSV filen (fx. til at vise top 5 svømmere)
     void readCSV(String filepath);

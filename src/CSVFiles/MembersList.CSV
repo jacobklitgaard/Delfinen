@@ -1,7 +1,5 @@
------   HEADER  -----
-Sebastian,25,voksen,true,false,true
-Jacob,42,voksen,true,true,true
-Søren,80,senior,true,false,false
-Jacob,42,Voksen,false,true,true
-Søren,80,Senior,false,true,false
-anoep,25,Voksen,true,false,true
+ID...Navn...Alder...Gruppe...Aktiv...Retance...Konkurrencesvømmer
+1,Sebastian,25,Voksen,true,true,true
+2,Søren,88,Senior,true,true,true
+3,Lars,45,Voksen,false,false,false
+4,jacob,322,Senior,true,false,false
