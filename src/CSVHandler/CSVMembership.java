@@ -1,6 +1,6 @@
 package CSVHandler;
 
-import Membership.Membership;
+import membership.Membership;
 
 import java.io.*;
 import java.util.List;
@@ -17,13 +17,14 @@ public class CSVMembership {
                     String line = reader.nextLine();
                     String[] field = line.split(",");
 
-                    String name = field[0];
-                    int age = Integer.parseInt(field[1]);
-                    boolean active = Boolean.parseBoolean(field[2]);
-                    boolean debt = Boolean.parseBoolean(field[3]);
-                    boolean competitive = Boolean.parseBoolean(field[4]);
+                    int ID = Integer.parseInt(field[0]);
+                    String name = field[1];
+                    int age = Integer.parseInt(field[2]);
+                    boolean active = Boolean.parseBoolean(field[3]);
+                    boolean debt = Boolean.parseBoolean(field[4]);
+                    boolean competitive = Boolean.parseBoolean(field[5]);
                     //Tilføjer filens data til arraylisten
-                    fromArray.add(new Membership(name, age, active, debt, competitive));
+                    fromArray.add(new Membership(ID, name, age, active, debt, competitive));
                 }
             } catch (FileNotFoundException y) {
                 System.out.println("Fil ikke fundet");
