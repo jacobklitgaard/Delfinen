@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MembersList {
-    private final List<Membership> memberslist = new ArrayList<>();
     private final List<Membership> compMemberslist = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
     List<Membership> memberslist = new ArrayList<>();
@@ -35,8 +34,9 @@ public class MembersList {
 
         //Gemmer navn
         System.out.print("Navn: ");
-        String name = input.nextLine();
+        String name = scanner.nextLine();
 
+        //Gemmer alder
         System.out.print("Alder: ");
         int age = scanner.nextInt();
         scanner.nextLine();
@@ -79,19 +79,27 @@ public class MembersList {
         //Tildeler de gemte variabler til et Membership objekt, og tilføjer det til 'opretmedlem' Arraylisten
         opretmedlem.add(new Membership(ID, name, age, active, debt, competitive));
 
-        //Her skrives objektet ind i MemberList.CSV filen
+        //Skriver 'opretmedlem' listen ind i CSV filen
         CSVMembership writer = new CSVMembership();
-        writer.writeCSV("src/CSVFiles/MembersList.CSV", memberslist);
+        writer.writeCSV("src/CSVFiles/MembersList.CSV", opretmedlem);
+
+        System.out.println("Medlem oprettet.");
+
     }
 
 
     //Viser medlemmer metode
     public void visMedlemmer() {
+
+        //Ny Arrayliste 'visListe' til at vise medlemmer som er gemt i CSV filen
+        List<Membership> visListe = new ArrayList<>();
+
         //Her læses filen, og konverterer linjerne til ArrayListen
         CSVMembership reader = new CSVMembership();
-        reader.readCSV("src/CSVFiles/MembersList.CSV", memberslist);
+        reader.readCSV("src/CSVFiles/MembersList.CSV", visListe);
+
         //For loop til at vise medlemmer
-        for(Membership m : memberslist){
+        for(Membership m : visListe){
             System.out.println(m);
         }
     }
