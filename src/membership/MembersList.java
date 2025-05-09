@@ -1,6 +1,6 @@
 package membership;
 
-import CSVHandler.CSVMembership;
+import csvhandler.CSVMembership;
 
 import java.util.ArrayList;
 import java.util.List;

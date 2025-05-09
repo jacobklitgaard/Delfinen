@@ -1,4 +1,4 @@
-package CSVHandler;
+package csvhandler;
 
 public interface CSVHandler {
     //Læser CSV filen (fx. til at vise top 5 svømmere)

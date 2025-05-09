@@ -1,4 +1,4 @@
-package CSVHandler;
+package csvhandler;
 
 import membership.Membership;
 
@@ -34,7 +34,7 @@ public class CSVMembership {
         public void writeCSV(String filepath, List<Membership> data) {
             try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
                 for (Membership s : data) {
-                    writer.println(s.toCSV());
+                    writer.println(s.memberToCSV());
                 }
             } catch (IOException b) {
                 System.out.println("Fil ikke fundet");

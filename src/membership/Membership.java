@@ -14,6 +14,9 @@ public class Membership {
     boolean debt;
     boolean competitive;
 
+    public Membership() {
+    }
+
     public Membership(int ID, String name, int age, boolean active, boolean debt, boolean competitive) {
         this.ID = ID;
         this.name = name;
@@ -119,7 +122,9 @@ public class Membership {
                 "\n Konkurrencesvømmer: " + competitive;
     }
     //Bruges til at skrive member data til CSV fil
-    public String toCSV() {
+    public String memberToCSV() {
         return ID + "," + name + "," + age + "," + ageCategory + "," + active + "," + debt + "," + competitive;
     }
+
+
 }

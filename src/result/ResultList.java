@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ResultLists {
+public class ResultList {
     private final List<CompetitionResult> competitionResults = new ArrayList<>();
     private final List<TrainingResult> trainingResults = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
     private final MembersList membersList = new MembersList();
 
     public void addTrainingResult() {
+
+        //Der indtastes ID-nummer og det sammenlignes med ID fra medlemsliste.
+        // Derefter oprettes resultat-objekt med indtastede data.
         System.out.print("ID: ");
         int ID = input.nextInt();
 
@@ -43,7 +46,7 @@ public class ResultLists {
         String date = input.nextLine();
 
         // Add the result to the training results list
-        trainingResults.add(new TrainingResult(foundMember, time, discipline, group, date));
+        trainingResults.add(new TrainingResult(foundMember.getID(), time, discipline, group, date));
     }
 
 
@@ -58,4 +61,5 @@ public class ResultLists {
         System.out.println("Svømme tid: ");
 
     }
+
 }

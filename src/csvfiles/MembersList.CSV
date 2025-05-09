@@ -1,5 +1,7 @@
-ID...Navn...Alder...Gruppe...Aktiv...Retance...Konkurrencesvømmer
+ID...Navn...Alder...Gruppe...Aktiv...Restance...Konkurrencesvømmer
 1,Sebastian,25,Voksen,true,true,true
 2,Søren,88,Senior,true,true,true
 3,Lars,45,Voksen,false,false,false
 4,jacob,322,Senior,true,false,false
+5,Jacob,23,Voksen,false,true,true
+10,Benny,34,Voksen,true,true,true

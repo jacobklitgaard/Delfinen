@@ -1,14 +1,13 @@
 package system;
 
 import membership.MembersList;
-import result.ResultLists;
-import result.TrainingResult;
+import result.ResultList;
 
 import java.util.Scanner;
 
 public class Systemmenu {
     Scanner input = new Scanner(System.in);
-    ResultLists rl = new ResultLists();
+    ResultList resultlist = new ResultList();
 
     public void Cashier() {
 
@@ -62,7 +61,7 @@ public class Systemmenu {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> rl.addTrainingResult();
+                case "1" -> resultlist.addTrainingResult();
                 case "2" -> regComp(input);
                 case "3" -> inRegMenu = false;
                 default -> System.out.println("Ugyldigt valg");

@@ -1,12 +1,15 @@
 package result;
 import membership.Membership;
 
-
 public class TrainingResult extends Result {      //til oprettelse af træningsresultater
 
-    public TrainingResult(Membership member, int time, String discipline, String group, String date) {
-        super(member, time, discipline, group, date);
+    public TrainingResult(int ID, int time, String discipline, String group, String date) {
+        super(ID, time, discipline, group, date);
 
+    }
+
+    public String resultToCSV() {
+        return ID + "," + time + "," + discipline + "," + group + "," + date;
     }
 
 }

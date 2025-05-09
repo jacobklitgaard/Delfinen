@@ -5,15 +5,15 @@ import membership.Membership;
 import java.util.ArrayList;
 
 public class Result {
-    protected Membership member;
+    protected int ID;
     protected String date;
     protected int time;
     protected String group;
     protected String discipline;
 
     
-    public Result(Membership member, int time, String group, String date, String discipline){
-        this.member = member;
+    public Result(int ID, int time, String group, String date, String discipline){
+        this.ID = ID;
         this.time = time;
         this.group = group;
         this.date = date;
