@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class MembersList {
     private final List<Membership> compMemberslist = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
-    List<Membership> memberslist = new ArrayList<>();
+
 
 
     public List<Membership> getMembersList() {
@@ -19,18 +19,18 @@ public class MembersList {
     //Metode til at oprette medlemmer
     public void opretMedlem () {
         //Ny Arrayliste til at lagre CSV filens data til at generere ID nummer ud fra Arraylistens index
-
+        List<Membership> getIDArray = new ArrayList<>();
         CSVMembership reader = new CSVMembership();
 
         //Læser CSV filens data til 'memberslist' Arraylisten.
-        reader.readCSV("src/CSVFiles/MembersList.CSV", memberslist);
+        reader.readCSV("src/CSVFiles/MembersList.CSV", getIDArray);
 
         //Ny Arrayliste til at lagre et nyt medlem
         List<Membership> opretmedlem = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         //Gemmer 'memberslist' størrelse af index + 1
-        int ID = memberslist.size() + 1;
+        int ID = getIDArray.size() + 1;
 
         //Gemmer navn
         System.out.print("Navn: ");
