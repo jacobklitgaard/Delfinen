@@ -58,7 +58,7 @@ public class ResultList {
 
         input.nextLine();
 
-        System.out.println("Svømme tid: ");
+        System.out.println("Svømmetid: ");
 
     }
 
