@@ -83,10 +83,10 @@ public class Membership {
         if (age < 18) {
             ageCategory = "Ung";
         }
-        if (age >= 18) {
+        else if (age < 60) {
             ageCategory = "Voksen";
         }
-        if (age >= 60) {
+        else {
             ageCategory = "Senior";
         }
         return ageCategory;
@@ -96,10 +96,10 @@ public class Membership {
         if(age < 18) {
             fee = 1000;
         }
-        if(age >= 18){
+        else if(age < 60){
             fee = 1600;
         }
-        if(age >= 60){
+        else {
             fee = 1200;
         }
         if(!active){
