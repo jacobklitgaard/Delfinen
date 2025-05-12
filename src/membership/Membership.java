@@ -10,12 +10,8 @@ public class Membership {
     double fee;
     boolean active;
     String ageCategory;
-    LocalDate payDate;
     boolean debt;
     boolean competitive;
-
-    public Membership() {
-    }
 
     public Membership(int ID, String name, int age, boolean active, boolean debt, boolean competitive) {
         this.ID = ID;
@@ -62,20 +58,12 @@ public class Membership {
         return debt;
     }
 
-    public LocalDate getPayDate() {
-        return payDate;
-    }
-
     public boolean hasDebt() {
         return debt;
     }
 
     public boolean isCompetitive() {
         return competitive;
-    }
-
-    public void debt(){
-        if(debt) System.out.println("ja");
     }
 
     // Regner ud hvilken gruppe medlemmet er i
@@ -119,17 +107,26 @@ public class Membership {
 
     @Override
     public String toString() {
-        return "Medlemsskab:" +
-
-                "\n ID: " + ID +
-                "\n Navn: " + name +
-                "\n Alder: " + age +
-                "\n Kontingent: " + fee +
-                "\n Aktiv: " + active +
-                "\n Kategori: " + ageCategory +
-                "\n Restance: " + debt +
-                "\n Konkurrencesvømmer: " + competitive;
+        return String.format(
+                "\n%-20s: %d" +
+                        "\n%-20s: %s" +
+                        "\n%-20s: %d år" +
+                        "\n%-20s: %.2f kr." +
+                        "\n%-20s: %s" +
+                        "\n%-20s: %s" +
+                        "\n%-20s: %s" +
+                        "\n%-20s: %s",
+                "ID", ID,
+                "Navn", name,
+                "Alder", age,
+                "Kontingent", fee,
+                "Aktiv", active ? "Ja" : "Nej",
+                "Kategori", ageCategory,
+                "Restance", debt ? "Ja" : "Nej",
+                "Konkurrencesvømmer", competitive ? "Ja" : "Nej"
+        );
     }
+
     //Bruges til at skrive member data til CSV fil
     public String memberToCSV() {
         return ID + "," + name + "," + age + "," + ageCategory + "," + active + "," + debt + "," + competitive;

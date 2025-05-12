@@ -20,7 +20,7 @@ public class Systemmenu {
         //UI til Formand
         boolean running = true;
         while (running) {
-            System.out.println("Håndtere medlemmer....\n" +
+            System.out.println("\nHåndtere medlemmer:\n" +
                     "1: Opret medlem\n" +
                     "2: Vis medlemmer\n" +
                     "3: Gå tilbage");
@@ -37,7 +37,7 @@ public class Systemmenu {
         //UI til træner
         Boolean running = true;
         while (running) {
-            System.out.println("Resultater....\n" +
+            System.out.println("\nResultater:\n" +
                     "1: Registrer resultat\n" +
                     "2: Træningsresultater\n" +
                     "3: Top 5 butterfly\n" +
