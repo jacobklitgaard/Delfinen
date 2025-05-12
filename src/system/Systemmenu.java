@@ -2,6 +2,7 @@ package system;
 
 import membership.MembersList;
 import result.ResultList;
+import result.TrainingResult;
 
 import java.util.Scanner;
 
@@ -39,14 +40,14 @@ public class Systemmenu {
             System.out.println("Resultater....\n" +
                     "1: Registrer resultat\n" +
                     "2: Træningsresultater\n" +
-                    "3: Konkurrenceresultater\n" +
+                    "3: Top 5 butterfly\n" +
                     "4: Gå tilbage");
 
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> register(input);
                 case "2" -> resultlist.showTrainingResults();
-                //case "3" -> compResults();
+                case "3" -> resultlist.getButterflyTopFive();
                 case "4" -> running = false;
                 default -> System.out.println("Ugyldigt valg");
             }

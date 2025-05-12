@@ -1,7 +1,7 @@
 package result;
 import membership.Membership;
 
-public class TrainingResult extends Result {      //til oprettelse af træningsresultater
+public class TrainingResult extends Result implements Comparable<TrainingResult>  {      //til oprettelse af træningsresultater
 
     public TrainingResult(int ID, String name, String group, String discipline, int time, String date) {
         super(ID, name, group, discipline, time, date);
@@ -24,6 +24,11 @@ public class TrainingResult extends Result {      //til oprettelse af træningsr
                 ", Svømmetid = " + time +
                 ", Dato ='" + date + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(TrainingResult o) {
+        return Integer.compare(time, o.time);
     }
 }
 

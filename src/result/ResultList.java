@@ -4,6 +4,7 @@ import membership.MembersList;
 import membership.Membership;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -69,11 +70,10 @@ public class ResultList {
 
     public void showTrainingResults() {
 
-        List<TrainingResult> showTRresult = new ArrayList<>();
-
+        List<TrainingResult> showTResult = new ArrayList<>();
         CSVTraining reader = new CSVTraining();
-        reader.readCSV("src/CSVFiles/TrainingResults.CSV", showTRresult);
-        for (TrainingResult t : showTRresult) {
+        reader.readCSV("src/CSVFiles/TrainingResults.CSV", showTResult);
+        for (TrainingResult t : showTResult) {
 
             System.out.println(t);
         }
@@ -81,6 +81,22 @@ public class ResultList {
 
     public void getButterflyTopFive() {
 
+        List<TrainingResult> showTResult = new ArrayList<>();
+        CSVTraining reader = new CSVTraining();
+        reader.readCSV("src/CSVFiles/TrainingResults.CSV", showTResult);
+
+        List<TrainingResult> butterflyResults = new ArrayList<>();
+        for (TrainingResult t : showTResult) {
+            if (t.getDiscipline().equalsIgnoreCase("butterfly")) {
+                butterflyResults.add(t);
+            }
+        }
+        Collections.sort(butterflyResults);
+
+        System.out.println("Top 5 Butterfly:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(butterflyResults.get(i));
+        }
     }
 
     public void getCrawlTopFive() {
