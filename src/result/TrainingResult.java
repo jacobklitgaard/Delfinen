@@ -16,14 +16,16 @@ public class TrainingResult extends Result implements Comparable<TrainingResult>
 
    @Override
     public String toString() {
-        return "TrainingResult{" +
-                "ID=" + ID +
-                ", Navn='" + name + '\'' +
-                ", Gruppe = '" + group + '\'' +
-                ", Disciplin ='" + discipline + '\'' +
-                ", Svømmetid = " + time +
-                ", Dato ='" + date + '\'' +
-                '}';
+       return String.format(
+               "---------------------------------\n" +
+                       "  ID         : %d\n" +
+                       "  Navn       : %s\n" +
+                       "  Gruppe     : %s\n" +
+                       "  Disciplin  : %s\n" +
+                       "  Svømmetid  : %d sekunder\n" +
+                       "  Dato       : %s",
+               ID, name, group, discipline, time, date
+       );
     }
 
     @Override

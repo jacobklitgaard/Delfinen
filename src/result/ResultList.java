@@ -42,11 +42,28 @@ public class ResultList {
 //        System.out.print("Gruppe: ");
 //        String group = input.nextLine();
 
-        System.out.print("Disciplin: ");
-        String discipline = input.nextLine();
+        System.out.println("Disciplin: ");
+        System.out.println("1. Crawl");
+        System.out.println("2. Rygcrawl");
+        System.out.println("3. Brystsvømning");
+        System.out.println("4. Butterfly");
 
-        System.out.print("Gruppe: ");
-        String group = input.nextLine();
+        String discipline = "";
+        String choice = input.nextLine();
+
+        switch (choice) {
+            case "1" -> discipline = "Crawl";
+            case "2" -> discipline = "Rygcrawl";
+            case "3" -> discipline = "Brystsvømning";
+            case "4" -> discipline = "Butterfly";
+            default -> {
+                System.out.println("Ugyldigt valg");
+            }
+        }
+
+        System.out.print("Svømmetid: ");
+        int time = input.nextInt();
+        input.nextLine();
 
         System.out.print("Dato: ");
         String date = input.nextLine();
