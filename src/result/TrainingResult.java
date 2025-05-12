@@ -3,14 +3,27 @@ import membership.Membership;
 
 public class TrainingResult extends Result {      //til oprettelse af træningsresultater
 
-    public TrainingResult(int ID, int time, String discipline, String group, String date) {
-        super(ID, time, discipline, group, date);
+    public TrainingResult(int ID, String name, String group, String discipline, int time, String date) {
+        super(ID, name, group, discipline, time, date);
 
     }
 
     public String resultToCSV() {
-        return ID + "," + time + "," + discipline + "," + group + "," + date;
+        return ID + "," + name + "," + group + "," + discipline + "," + time + "," + date;
     }
 
+// ID, navn, gruppe, disciplin, svømmetid, dato
+
+   @Override
+    public String toString() {
+        return "TrainingResult{" +
+                "ID=" + ID +
+                ", Navn='" + name + '\'' +
+                ", Gruppe = '" + group + '\'' +
+                ", Disciplin ='" + discipline + '\'' +
+                ", Svømmetid = " + time +
+                ", Dato ='" + date + '\'' +
+                '}';
+    }
 }
 

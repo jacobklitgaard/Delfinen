@@ -4,8 +4,8 @@ public class CompetitionResult extends Result{        //til oprettelse af konkur
     private String competition;
     private int rank;
 
-    public CompetitionResult(int memberID, int time, String discipline, String group, String date, String competition, int rank) {
-        super(memberID, time, discipline, group, date);
+    public CompetitionResult(int ID, String name, int time, String discipline, String group, String date, String competition, int rank) {
+        super(ID, name, group, discipline, time, date);
         this.competition = competition;
         this.rank = rank;
     }

@@ -108,6 +108,15 @@ public class Membership {
         return fee;
     }
 
+    public String group(){
+        if(age < 18){
+            return "Junior";
+        }
+        else {
+            return "Senior";
+        }
+    }
+
     @Override
     public String toString() {
         return "Medlemsskab:" +

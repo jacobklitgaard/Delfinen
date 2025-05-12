@@ -45,7 +45,7 @@ public class Systemmenu {
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> register(input);
-                //case "2" -> trainingresults();
+                case "2" -> resultlist.showTrainingResults();
                 //case "3" -> compResults();
                 case "4" -> running = false;
                 default -> System.out.println("Ugyldigt valg");

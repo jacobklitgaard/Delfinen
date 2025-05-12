@@ -8,10 +8,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ResultList {
-    private final List<CompetitionResult> competitionResults = new ArrayList<>();
-    private final List<TrainingResult> trainingResults = new ArrayList<>();
-    private final Scanner input = new Scanner(System.in);
-    private final MembersList membersList = new MembersList();
+    List<CompetitionResult> competitionResults = new ArrayList<>();
+
+
+    Scanner input = new Scanner(System.in);
+
+    // Trainingresults bliver opdateret hver gang vi kalder på .addresult
+    // vi ønsker at få et array  der kun indeholder entries fra vores csv.
+    // derfor erstatter vi værdien af trainingresults med en metode her hedder getResults;
 
     public void addTrainingResult() {
 
@@ -32,9 +36,10 @@ public class ResultList {
             return;
         }
 
-        System.out.print("Svømmetid: ");
-        int time = input.nextInt();
-        input.nextLine();
+        System.out.println("Navn: " + foundMember.getName());
+
+//        System.out.print("Gruppe: ");
+//        String group = input.nextLine();
 
         System.out.print("Disciplin: ");
         String discipline = input.nextLine();
@@ -62,4 +67,23 @@ public class ResultList {
 
     }
 
+    public void showTrainingResults() {
+
+        List<TrainingResult> showTRresult = new ArrayList<>();
+
+        CSVTraining reader = new CSVTraining();
+        reader.readCSV("src/CSVFiles/TrainingResults.CSV", showTRresult);
+        for (TrainingResult t : showTRresult) {
+
+            System.out.println(t);
+        }
+    }
+
+    public void getButterflyTopFive() {
+
+    }
+
+    public void getCrawlTopFive() {
+
+    }
 }
