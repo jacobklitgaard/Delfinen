@@ -1,14 +1,16 @@
 package result;
+import csvhandler.CSVWriteable;
 import membership.Membership;
 
-public class TrainingResult extends Result implements Comparable<TrainingResult>  {      //til oprettelse af træningsresultater
+public class TrainingResult extends Result implements Comparable<TrainingResult>, CSVWriteable {      //til oprettelse af træningsresultater
 
     public TrainingResult(int ID, String name, String group, String discipline, int time, String date) {
         super(ID, name, group, discipline, time, date);
 
     }
 
-    public String resultToCSV() {
+    @Override
+    public String toCSV() {
         return ID + "," + name + "," + group + "," + discipline + "," + time + "," + date;
     }
 

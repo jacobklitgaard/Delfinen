@@ -14,7 +14,7 @@ public class MembersList {
     }
 
     //Metode til at oprette medlemmer
-    public void opretMedlem () {
+    public void createMember() {
         //Ny Arrayliste til at lagre CSV filens data til at generere ID nummer ud fra Arraylistens index
         List<Membership> getIDArray = new ArrayList<>();
         CSVMembership reader = new CSVMembership();
@@ -23,7 +23,7 @@ public class MembersList {
         reader.readCSV("src/CSVFiles/MembersList.CSV", getIDArray);
 
         //Ny Arrayliste til at lagre et nyt medlem
-        List<Membership> opretmedlem = new ArrayList<>();
+        List<Membership> createMember = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         //Gemmer 'memberslist' størrelse af index + 1
@@ -42,11 +42,11 @@ public class MembersList {
         System.out.print("Er medlemmet aktivt? (j/n): ");
         String choiceAP = scanner.nextLine().trim().toLowerCase();
         boolean active = false;
-        while(!choiceAP.equals("j") && !choiceAP.equals("n")){
+        while (!choiceAP.equals("j") && !choiceAP.equals("n")) {
             System.out.println("tast j/n");
             choiceAP = scanner.nextLine().trim().toLowerCase();
         }
-        if(choiceAP.equals("j")){
+        if (choiceAP.equals("j")) {
             active = true;
         }
 
@@ -54,11 +54,11 @@ public class MembersList {
         System.out.print("Er medlemmet i restance? (j/n): ");
         String choiceRes = scanner.nextLine().trim().toLowerCase();
         boolean debt = false;
-        while(!choiceRes.equals("j") && !choiceRes.equals("n")){
+        while (!choiceRes.equals("j") && !choiceRes.equals("n")) {
             System.out.println("tast j/n");
             choiceRes = scanner.nextLine().trim().toLowerCase();
         }
-        if(choiceRes.equals("j")){
+        if (choiceRes.equals("j")) {
             debt = true;
         }
 
@@ -66,19 +66,19 @@ public class MembersList {
         System.out.print("Er medlemmet konkurrencesvømmer? (j/n): ");
         String choiceComp = scanner.nextLine().trim().toLowerCase();
         boolean competitive = false;
-        while(!choiceComp.equals("j") && !choiceComp.equals("n")){
+        while (!choiceComp.equals("j") && !choiceComp.equals("n")) {
             System.out.println("tast j/n");
             choiceComp = scanner.nextLine().trim().toLowerCase();
         }
-        if(choiceComp.equals("j")){
+        if (choiceComp.equals("j")) {
             competitive = true;
         }
         //Tildeler de gemte variabler til et Membership objekt, og tilføjer det til 'opretmedlem' Arraylisten
-        opretmedlem.add(new Membership(ID, name, age, active, debt, competitive));
+        createMember.add(new Membership(ID, name, age, active, debt, competitive));
 
         //Skriver 'opretmedlem' listen ind i CSV filen
         CSVMembership writer = new CSVMembership();
-        writer.writeCSV("src/CSVFiles/MembersList.CSV", opretmedlem);
+        writer.writeCSV("src/CSVFiles/MembersList.CSV", createMember);
 
         System.out.println("Medlem oprettet.");
 
@@ -86,7 +86,7 @@ public class MembersList {
 
 
     //Viser medlemmer metode
-    public void visMedlemmer() {
+    public void showMembers() {
 
         //Ny Arrayliste 'visListe' til at vise medlemmer som er gemt i CSV filen
         List<Membership> visListe = new ArrayList<>();
@@ -96,11 +96,43 @@ public class MembersList {
         reader.readCSV("src/CSVFiles/MembersList.CSV", visListe);
 
         //For loop til at vise medlemmer
-        for(Membership m : visListe){
+        for (Membership m : visListe) {
             System.out.println(m);
         }
     }
 
+    public void showExpectedPayments() {
+        List<Membership> list = new ArrayList<>(); // Laver tom array
+        CSVMembership reader = new CSVMembership();
+        reader.readCSV("src/CSVFiles/MembersList.CSV", list); // Læser fra CSV til tom array
 
+        double total = 0;
+        double totalDebt = 0;
+
+        for (Membership m : list) {
+            total += m.expectedFee();// gennemgår medlemmer fra array og udregner samletbetaling
+            if (m.hasDebt()) {
+
+            }
+        }
+        System.out.printf("Samlet forventet kontingentbetaling: %.2f kr.\n", total); //Udskriver beløb i kroner
+    }
+
+    public void showMembersInDebt() {
+        List<Membership> list = new ArrayList<>(); // Laver tom array
+        CSVMembership reader = new CSVMembership();
+        reader.readCSV("src/CSVFiles/MembersList.CSV", list); // Læser fra CSV til tom array
+
+        //Tæller og viser medlemmer i restance
+        int count = 0;
+        System.out.println("\n Medlemmer i restance");
+        for (Membership m : list) {
+            if (m.hasDebt()) {
+                System.out.println(m);
+                count++;
+            }
+        }
+        System.out.println("\nAntallet af medlemmer i restance: " + count);
+    }
 
 }

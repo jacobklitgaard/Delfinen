@@ -1,9 +1,5 @@
 package result;
 
-import membership.Membership;
-
-import java.util.ArrayList;
-
 public class Result {
     protected int ID;
     protected String name;
@@ -15,6 +11,7 @@ public class Result {
     
     public Result(int ID, String name, String group, String discipline, int time, String date){
         this.ID = ID;
+        this.name = name;
         this.time = time;
         this.group = group;
         this.date = date;
@@ -36,6 +33,5 @@ public class Result {
     public String getDiscipline(){
         return discipline;
     }
-
 }
 

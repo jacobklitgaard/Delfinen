@@ -1,9 +1,11 @@
 package membership;
 
+import csvhandler.CSVWriteable;
+
 import java.time.LocalDate;
 import java.util.List;
 
-public class Membership {
+public class Membership implements CSVWriteable {
     int ID;
     String name;
     int age;
@@ -20,22 +22,12 @@ public class Membership {
         this.active = active;
         this.debt = debt;
         this.competitive = competitive;
-        this.fee = calculateFee(age);
         this.ageCategory = calculateCategory(age);
+        this.fee = calculateFee(age);
     }
 
     public int getID() {
         return ID;
-    }
-
-    public static int getID(List<Membership> array) {
-
-        int counter = 0;
-
-        for(Membership m : array){
-            counter++;
-        }
-        return 0 ;
     }
 
     public String getName() {
@@ -79,6 +71,7 @@ public class Membership {
         }
         return ageCategory;
     }
+
     // Regner ud hvad medlemmet skal betale af kontigent
     public double calculateFee(int age){
 
@@ -87,13 +80,13 @@ public class Membership {
         }
 
         if(age < 18) {
-            fee = 1000;
+            return 1000;
         }
         else if(age < 60){
-            fee = 1600;
+            return 1600;
         }
         else {
-            fee = 1200;
+          return 1200;
         }
     }
 
@@ -129,9 +122,13 @@ public class Membership {
     }
 
     //Bruges til at skrive member data til CSV fil
-    public String memberToCSV() {
+    @Override
+    public String toCSV() {
         return ID + "," + name + "," + age + "," + ageCategory + "," + active + "," + debt + "," + competitive;
     }
 
-
+    //// Returnerer kontingent beregnet ud fra medlemmets alder og status
+    public double expectedFee() {
+        return calculateFee(age);
+    }
 }

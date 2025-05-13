@@ -6,10 +6,11 @@ import java.io.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class CSVMembership {
+public class CSVMembership implements CSVHandler {
         //Metode til at læse CSV fil og konventere det til ArrayListen
         //(Virker ikke med Interface, da List parameterren skal modtage Membership)
-        public void readCSV (String filepath, List<Membership> fromArray) {
+    @Override
+        public <T> void readCSV (String filepath, List<T> fromArray) {
             try (Scanner reader = new Scanner(new File(filepath))) {
                 reader.nextLine();
 
@@ -24,17 +25,19 @@ public class CSVMembership {
                     boolean debt = Boolean.parseBoolean(field[5]);
                     boolean competitive = Boolean.parseBoolean(field[6]);
                     //Tilføjer filens data til arraylisten
-                    fromArray.add(new Membership(ID, name, age, active, debt, competitive));
+                    @SuppressWarnings("unchecked")
+                    List<Membership> casted = (List<Membership>) fromArray;
+                    casted.add(new Membership(ID, name, age, active, debt, competitive));
                 }
             } catch (FileNotFoundException y) {
                 System.out.println("Fil ikke fundet");
             }
         }
-
-        public void writeCSV(String filepath, List<Membership> data) {
+        @Override
+        public <T extends CSVWriteable> void writeCSV(String filepath, List<T> data) {
             try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
-                for (Membership s : data) {
-                    writer.println(s.memberToCSV());
+                for (T s : data) {
+                    writer.println(s.toCSV());
                 }
             } catch (IOException b) {
                 System.out.println("Fil ikke fundet");

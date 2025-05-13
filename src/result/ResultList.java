@@ -1,6 +1,8 @@
 package result;
 
-import membership.MembersList;
+import csvhandler.CSVCompetition;
+import csvhandler.CSVMembership;
+import csvhandler.CSVTraining;
 import membership.Membership;
 
 import java.util.ArrayList;
@@ -17,19 +19,28 @@ public class ResultList {
     // derfor erstatter vi værdien af trainingresults med en metode her hedder getResults;
 
     public void addTrainingResult() {
-
+        List<TrainingResult> tempResult = new ArrayList<>();
+        //Henter medlemmer midlertidligt til ID brug
+        List<Membership> midlertidlig = new ArrayList<>();
+        CSVMembership reader = new CSVMembership();
+        reader.readCSV("src/CSVFiles/MembersList.CSV", midlertidlig);
         //Der indtastes ID-nummer og det sammenlignes med ID fra medlemsliste.
         // Derefter oprettes resultat-objekt med indtastede data.
+
+        //List til lagring af nyt træningsresultat
+
         System.out.print("ID: ");
         int ID = input.nextInt();
+        input.nextLine();
 
         Membership foundMember = null;
-        for (Membership m : membersList.getMembersList()) { // Get the list of members from MembersList
+        for (Membership m : midlertidlig) { // Get the list of members from MembersList
             if (m.getID() == ID) {
                 foundMember = m;
                 break;
             }
         }
+
         if (foundMember == null) {
             System.out.println("Medlem ikke fundet.");
             return;
@@ -66,10 +77,18 @@ public class ResultList {
         System.out.print("Dato: ");
         String date = input.nextLine();
 
-        // Add the result to the training results list
-        trainingResults.add(new TrainingResult(foundMember.getID(), time, discipline, group, date));
-    }
+        // Opretter nyt result
+        TrainingResult newResult = new TrainingResult(foundMember.getID(), foundMember.getName(), foundMember.group(), discipline, time, date);
 
+        // Add the result to the training results array
+        tempResult.add(newResult);
+
+        System.out.println(newResult);
+
+        CSVTraining writer = new CSVTraining();
+        writer.writeCSV("src/csvfiles/TrainingResults.CSV", tempResult);
+
+    }
 
     public void addCompResult() {
         List<CompetitionResult> tempResult = new ArrayList<>();
@@ -348,3 +367,4 @@ public class ResultList {
 //    }
 
 }
+

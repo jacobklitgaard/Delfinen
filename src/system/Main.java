@@ -8,5 +8,4 @@ public class Main {
         ui.start();
         //ORALE
     }
-
 }

@@ -6,10 +6,11 @@ import java.io.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class CSVTraining {
+public class CSVTraining implements CSVHandler {
 
     //metode kopieret fra CSVmembership som skal skrive resultater til array
-    public void readCSV (String filepath, List<TrainingResult> fromArray) {
+    @Override
+    public <T> void readCSV (String filepath, List<T> fromArray) {
 
         try (Scanner reader = new Scanner(new File(filepath))) {
             reader.nextLine();
@@ -25,22 +26,22 @@ public class CSVTraining {
                 int time = Integer.parseInt(field[4]);
                 String date = (field[5]);
                 //Tilføjer filens data til arraylisten
-                fromArray.add(new TrainingResult(memberID, name, group, discipline, time, date));
+                List<TrainingResult> casted = (List<TrainingResult>) fromArray;
+                casted.add(new TrainingResult(memberID, name, group, discipline, time, date));
             }
         } catch (FileNotFoundException y) {
             System.out.println("Fil ikke fundet");
         }
     }
 
-
-    public void writeCSV(String filepath, List<TrainingResult> data) {
+    @Override
+    public <T extends CSVWriteable> void writeCSV(String filepath, List<T> data) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
-for (TrainingResult t : data) {
-                writer.println(t.resultToCSV());
+            for (T t : data) {
+                writer.println(t.toCSV());
             }
         } catch (IOException b) {
             System.out.println("Fil ikke fundet");
         }
     }
-
 }
