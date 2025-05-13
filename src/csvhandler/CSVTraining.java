@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class CSVTraining implements CSVHandler {
 
-    //metode kopieret fra CSVmembership som skal skrive resultater til array
+    //Metode kopieret fra CSVMembership som skal skrive resultater til array
+    //  (Se CSVMembership for kommentarer)
     @Override
     public <T> void readCSV (String filepath, List<T> fromArray) {
 

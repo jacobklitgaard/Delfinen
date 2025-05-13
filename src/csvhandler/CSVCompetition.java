@@ -1,7 +1,6 @@
 package csvhandler;
 
 import result.CompetitionResult;
-import result.TrainingResult;
 
 import java.io.*;
 import java.util.List;
@@ -9,7 +8,8 @@ import java.util.Scanner;
 
 public class CSVCompetition implements CSVHandler {
 
-    //metode kopieret fra CSVmembership som skal skrive resultater til array
+    //Metode kopieret fra CSVMembership som skal skrive resultater til array
+    //  (Se CSVMembership for kommentarer)
     @Override
     public <T> void readCSV (String filepath, List<T> fromArray) {
 
@@ -28,10 +28,7 @@ public class CSVCompetition implements CSVHandler {
                 String date = (field[5]);
                 String competition = (field[6]);
                 int rank = Integer.parseInt (field [7]);
-                //Tilføjer filens data til arraylisten
-                //Caster arraylisten CompetitionResults, så den kan bruges istedet for T
-                //(Bliver man nød til da vi skal tilføje objektet til arraylisten)...
-                //"Unchecked cast" er ligegyldig... Den laver kun fejl hvis man bruger et andet objekt i listen.
+
                 List<CompetitionResult> casted = (List<CompetitionResult>) fromArray;
                 casted.add(new result.CompetitionResult(ID, name, group, discipline, time, date, competition, rank));
             }

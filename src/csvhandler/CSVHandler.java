@@ -1,13 +1,13 @@
 package csvhandler;
 
-import membership.Membership;
-
 import java.util.List;
 
 public interface CSVHandler {
-    //Læser CSV filen (fx. til at vise top 5 svømmere)
+    //Læser CSV filen og tilføjer det til en Arrayliste "fromArray" (fx. til at vise top 5 svømmere)
     <T> void readCSV(String filepath, List<T> fromArray);
-    //Skriver til CSV filen (tilføjer ny data, som et medlem, om medlemmet er aktiv osv.)
-    //List<?> betyder at metoden kan tage imod alle former for data.
+
+    //Skriver data fra Arraylisten "data" og skriver det til CSV filen.
+    //<T> er en placeholder for objektet i Arraylisten. (Tillader at bruge alle objekter i Arraylisten).
+    //Extender CSVWritable for at bruge toCSV metoden. (Se CSVMembership)
     <T extends CSVWriteable> void writeCSV(String filepath, List<T> data);
 }
