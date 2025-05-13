@@ -39,15 +39,15 @@ public class Systemmenu {
         while (running) {
             System.out.println("\nResultater:\n" +
                     "1: Registrer resultat\n" +
-                    "2: Træningsresultater\n" +
-                    "3: Top 5 butterfly\n" +
+                    "2: Træning\n" +
+                    "3: Konkurrence\n" +
                     "4: Gå tilbage");
 
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> register(input);
-                case "2" -> resultlist.showTrainingResults();
-                case "3" -> resultlist.getButterflyTopFive();
+                case "2" -> training(input);
+                case "3" -> resultlist.showCompetitionResults();
                 case "4" -> running = false;
                 default -> System.out.println("Ugyldigt valg");
             }
@@ -62,9 +62,10 @@ public class Systemmenu {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> resultlist.addTrainingResult();
-                case "2" -> regComp(input);
-                case "3" -> inRegMenu = false;
+                case "1" -> resultlist.showTrainingResults();
+                case "2" -> topFiveJunior(input);
+                case "3" -> topFiveSenior(input);
+                case "4" -> inTrainingMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }
         }
@@ -100,11 +101,11 @@ public class Systemmenu {
             String choice = input.nextLine();
 
             switch (choice) {
-//                case "1" -> addCompResult();
-//                case "2" -> addCompResult();
-//                case "3" -> addCompResult();
-//                case "4" -> addCompResult();
-                case "5" -> inCompMenu = false;
+                case "1" -> resultlist.getButterflyTopFiveJunior();
+                case "2" -> resultlist.getCrawlTopFiveJunior();
+                case "3" -> resultlist.getRygcrawlTopFiveJunior();
+                case "4" -> resultlist.getBrystTopFiveJunior();
+                case "5" -> inJuniorMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }
         }

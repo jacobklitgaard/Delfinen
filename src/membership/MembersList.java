@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class MembersList {
     private final List<Membership> memberslist = new ArrayList<>();
-    private final Scanner input = new Scanner(System.in);
 
     public List<Membership> getMembersList() {
         return memberslist;

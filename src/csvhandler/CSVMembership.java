@@ -20,9 +20,9 @@ public class CSVMembership {
                     int ID = Integer.parseInt(field[0]);
                     String name = field[1];
                     int age = Integer.parseInt(field[2]);
-                    boolean active = Boolean.parseBoolean(field[3]);
-                    boolean debt = Boolean.parseBoolean(field[4]);
-                    boolean competitive = Boolean.parseBoolean(field[5]);
+                    boolean active = Boolean.parseBoolean(field[4]);
+                    boolean debt = Boolean.parseBoolean(field[5]);
+                    boolean competitive = Boolean.parseBoolean(field[6]);
                     //Tilføjer filens data til arraylisten
                     fromArray.add(new Membership(ID, name, age, active, debt, competitive));
                 }
