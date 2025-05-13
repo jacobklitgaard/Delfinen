@@ -81,6 +81,11 @@ public class Membership {
     }
     // Regner ud hvad medlemmet skal betale af kontigent
     public double calculateFee(int age){
+
+        if(!active){
+            return 500;
+        }
+
         if(age < 18) {
             fee = 1000;
         }
@@ -90,10 +95,6 @@ public class Membership {
         else {
             fee = 1200;
         }
-        if(!active){
-            fee = 500;
-        }
-        return fee;
     }
 
     public String group(){

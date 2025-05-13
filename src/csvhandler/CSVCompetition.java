@@ -1,7 +1,9 @@
 package csvhandler;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import result.CompetitionResult;
+import result.TrainingResult;
+
+import java.io.*;
 import java.util.List;
 import java.util.Scanner;
 import java.io.File;
