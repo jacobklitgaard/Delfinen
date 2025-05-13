@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class MembersList {
     private final List<Membership> memberslist = new ArrayList<>();
 
-    public List<Membership> getMembersList() {
+  public List<Membership> getMembersList() {
         return memberslist;
     }
 
@@ -84,7 +84,6 @@ public class MembersList {
 
     }
 
-
     //Viser medlemmer metode
     public void showMembers() {
 
@@ -98,7 +97,11 @@ public class MembersList {
         //For loop til at vise medlemmer
         for (Membership m : visListe) {
             System.out.println(m);
+
         }
+        System.out.println("\n_____________________" +
+                "\nAntallet af medlemmer i alt: " + visListe.size() +
+                "\n_____________________");
     }
 
     public void showExpectedPayments() {
@@ -110,12 +113,14 @@ public class MembersList {
         double totalDebt = 0;
 
         for (Membership m : list) {
-            total += m.expectedFee();// gennemgår medlemmer fra array og udregner samletbetaling
+            double fee = m.expectedFee();// gennemgår medlemmer fra array og udregner samletbetaling
+            total += fee;
             if (m.hasDebt()) {
-
+                totalDebt += fee;
             }
         }
-        System.out.printf("Samlet forventet kontingentbetaling: %.2f kr.\n", total); //Udskriver beløb i kroner
+        System.out.printf("Samlet forventet kontingentbetaling: %.2f kr.\n", total, "Inklusiv restance"); //Udskriver beløb i kroner
+        System.out.printf("Samlet restance beløb: %.2f kr. \n", totalDebt);
     }
 
     public void showMembersInDebt() {
@@ -132,7 +137,9 @@ public class MembersList {
                 count++;
             }
         }
-        System.out.println("\nAntallet af medlemmer i restance: " + count);
+        System.out.println("_____________________" +
+                "\nAntallet af medlemmer i restance: " + count);
+
     }
 
 }

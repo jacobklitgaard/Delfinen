@@ -102,6 +102,7 @@ public class Membership implements CSVWriteable {
     @Override
     public String toString() {
         return String.format(
+                "_____________________" +
                 "\n%-20s: %d" +
                         "\n%-20s: %s" +
                         "\n%-20s: %d år" +

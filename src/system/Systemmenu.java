@@ -2,11 +2,17 @@ package system;
 
 import membership.MembersList;
 import result.ResultList;
-import result.TrainingResult;
 
 import java.util.Scanner;
 
 public class Systemmenu {
+    //ANSI-farvekoder.
+    public static final String RESET = "\u001B[0m";    // Nulstil farve
+    public static final String RØD = "\u001B[31m";     // Rød tekst
+    public static final String GRØN = "\u001B[32m";    // Grøn tekst
+    public static final String GUL = "\u001B[33m";     // Gul tekst
+    public static final String CYAN = "\u001B[36m";    // Cyan tekst
+
     Scanner input = new Scanner(System.in);
     ResultList resultlist = new ResultList();
 
