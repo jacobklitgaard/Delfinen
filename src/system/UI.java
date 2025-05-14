@@ -1,5 +1,6 @@
 package system;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UI {
@@ -24,32 +25,44 @@ public class UI {
             switch (choice) {
                 case "1" -> {
                     System.out.println("Skriv pinkode... (4 cifre)");
-                    int password = input.nextInt();
-                    input.nextLine();
-                    if (password == 4358) {
-                        sm.Chairman();
-                    } else {
-                        System.out.println("Forkert kodeord");
+                    try {
+                        int password = input.nextInt();
+                        input.nextLine();
+                        if (password == 1234) {
+                            sm.Chairman();
+                        } else {
+                            System.out.println("Forkert kodeord");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Kun tal...");
                     }
                 }
                 case "2" -> {
                     System.out.println("Skriv pinkode... (4 cifre)");
-                    int password = input.nextInt();
-                    input.nextLine();
-                    if (password == 1234) {
-                        sm.Trainer();
-                    } else {
-                        System.out.println("Forkert kodeord");
+                    try {
+                        int password = input.nextInt();
+                        input.nextLine();
+                        if (password == 1234) {
+                            sm.Trainer();
+                        } else {
+                            System.out.println("Forkert kodeord");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Kun tal...");
                     }
                 }
                 case "3" -> {
                     System.out.println("Skriv pinkode... (4 cifre)");
-                    int password = input.nextInt();
-                    input.nextLine();
-                    if (password == 6127) {
-                        sm.Cashier();
-                    } else {
-                        System.out.println("Forkert kodeord");
+                    try {
+                        int password = input.nextInt();
+                        input.nextLine();
+                        if (password == 1234) {
+                            sm.Cashier();
+                        } else {
+                            System.out.println("Forkert kodeord");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Kun tal...");
                     }
                 }
                 case "4" -> {
@@ -58,6 +71,7 @@ public class UI {
                     running = false;
                     input.close();
                 }
+                default -> System.out.println("Ugyldig input, prøv igen");
             }
         }
     }

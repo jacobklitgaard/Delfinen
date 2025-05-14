@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Placement {
-
     public void getButterflyTopFiveJunior() {
 
         List<TrainingResult> showTResult = new ArrayList<>();
