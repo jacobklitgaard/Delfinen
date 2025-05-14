@@ -36,6 +36,7 @@ public class Systemmenu {
                 case "1" -> createMembers.createMember();
                 case "2" -> createMembers.showMembers();
                 case "3" -> running = false;
+                default -> System.out.println("Ugyldigt valg");
             }
         }
     }
