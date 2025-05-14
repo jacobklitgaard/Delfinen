@@ -1,6 +1,7 @@
 package system;
 
 import membership.MembersList;
+import result.Placement;
 import result.ResultList;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class Systemmenu {
 
     Scanner input = new Scanner(System.in);
     ResultList resultlist = new ResultList();
+    Placement placement = new Placement();
 
     public void Chairman() {
 
@@ -103,10 +105,10 @@ public class Systemmenu {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> resultlist.getButterflyTopFiveJunior();
-                case "2" -> resultlist.getCrawlTopFiveJunior();
-                case "3" -> resultlist.getRygcrawlTopFiveJunior();
-                case "4" -> resultlist.getBrystTopFiveJunior();
+                case "1" -> placement.getButterflyTopFiveJunior();
+                case "2" -> placement.getCrawlTopFiveJunior();
+                case "3" -> placement.getRygcrawlTopFiveJunior();
+                case "4" -> placement.getBrystTopFiveJunior();
                 case "5" -> inJuniorMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }
@@ -124,10 +126,10 @@ public class Systemmenu {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> resultlist.getButterflyTopFiveSenior();
-                case "2" -> resultlist.getCrawlTopFiveSenior();
-                case "3" -> resultlist.getRygcrawlTopFiveSenior();
-                case "4" -> resultlist.getBrystTopFiveSenior();
+                case "1" -> placement.getButterflyTopFiveSenior();
+                case "2" -> placement.getCrawlTopFiveSenior();
+                case "3" -> placement.getRygcrawlTopFiveSenior();
+                case "4" -> placement.getBrystTopFiveSenior();
                 case "5" -> inSeniorMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }

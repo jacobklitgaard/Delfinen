@@ -22,9 +22,36 @@ public class UI {
             System.out.println(RØD + "4: Luk system." + RESET);
             String choice = input.nextLine();
             switch (choice) {
-                case "1" -> sm.Chairman();
-                case "2" -> sm.Trainer();
-                case "3" -> sm.Cashier();
+                case "1" -> {
+                    System.out.println("Skriv pinkode... (4 cifre)");
+                    int password = input.nextInt();
+                    input.nextLine();
+                    if (password == 4358) {
+                        sm.Chairman();
+                    } else {
+                        System.out.println("Forkert kodeord");
+                    }
+                }
+                case "2" -> {
+                    System.out.println("Skriv pinkode... (4 cifre)");
+                    int password = input.nextInt();
+                    input.nextLine();
+                    if (password == 1234) {
+                        sm.Trainer();
+                    } else {
+                        System.out.println("Forkert kodeord");
+                    }
+                }
+                case "3" -> {
+                    System.out.println("Skriv pinkode... (4 cifre)");
+                    int password = input.nextInt();
+                    input.nextLine();
+                    if (password == 6127) {
+                        sm.Cashier();
+                    } else {
+                        System.out.println("Forkert kodeord");
+                    }
+                }
                 case "4" -> {
                     //Lukker programmet
                     System.out.println("Lukker systemet...");
@@ -34,4 +61,11 @@ public class UI {
             }
         }
     }
+
+ /*   public int password (int password, String type) {
+        if (type.equalsIgnoreCase("chairman")) {
+            password = 8763;
+            return
+        }
+    }*/
 }
