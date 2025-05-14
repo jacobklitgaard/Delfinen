@@ -26,9 +26,12 @@ public class CompetitionResult extends Result implements CSVWriteable {        /
     }
     @Override
     public String toString() {
+        final String RESET = "\u001B[0m";
+        final String CYAN = "\u001B[36m";
+
         return String.format(
                 "---------------------------------\n" +
-                        "  ID         : %d\n" +
+                 CYAN + "  ID         : %d\n" + RESET +
                         "  Navn       : %s\n" +
                         "  Gruppe     : %s\n" +
                         "  Disciplin  : %s\n" +

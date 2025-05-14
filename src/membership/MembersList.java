@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MembersList {
+    public static final String RESET = "\u001B[0m";
+    public static final String GRØN = "\u001B[32m";
+    public static final String LYSRØD ="\u001B[91m";
+
     private final List<Membership> memberslist = new ArrayList<>();
 
   public List<Membership> getMembersList() {
@@ -80,7 +84,7 @@ public class MembersList {
         CSVMembership writer = new CSVMembership();
         writer.writeCSV("src/CSVFiles/MembersList.CSV", createMember);
 
-        System.out.println("Medlem oprettet.");
+        System.out.println(GRØN + "Medlem oprettet." + RESET);
 
     }
 
@@ -99,9 +103,9 @@ public class MembersList {
             System.out.println(m);
 
         }
-        System.out.println("\n_____________________" +
+        System.out.println(GRØN + "\n_____________________" +
                 "\nAntallet af medlemmer i alt: " + visListe.size() +
-                "\n_____________________");
+                "\n_____________________"+ RESET);
     }
 
     public void showExpectedPayments() {

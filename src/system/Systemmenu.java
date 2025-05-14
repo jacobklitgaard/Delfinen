@@ -1,6 +1,8 @@
 package system;
 
+import jdk.swing.interop.SwingInterOpUtils;
 import membership.MembersList;
+import result.Placement;
 import result.ResultList;
 
 import java.util.Scanner;
@@ -13,8 +15,11 @@ public class Systemmenu {
     public static final String GUL = "\u001B[33m";     // Gul tekst
     public static final String CYAN = "\u001B[36m";    // Cyan tekst
 
+    public static final String FED = "\u001B[1m";
+
     Scanner input = new Scanner(System.in);
     ResultList resultlist = new ResultList();
+    Placement placement = new Placement();
 
     public void Chairman() {
 
@@ -22,10 +27,10 @@ public class Systemmenu {
         //UI til Formand
         boolean running = true;
         while (running) {
-            System.out.println("\nHåndtere medlemmer:\n" +
-                    "1: Opret medlem\n" +
-                    "2: Vis medlemmer\n" +
-                    "3: Gå tilbage");
+            System.out.println(CYAN + FED + "Håndter medlemmer:" + RESET);
+            System.out.println ("1: Opret medlem");
+            System.out.println ("2: Vis medlemmer");
+            System.out.println ("3: Gå tilbage ⏮️");
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> createMembers.createMember();
@@ -39,11 +44,11 @@ public class Systemmenu {
         //UI til træner
         Boolean running = true;
         while (running) {
-            System.out.println("\nResultater:\n" +
-                    "1: Registrer resultat\n" +
-                    "2: Træning\n" +
-                    "3: Konkurrence\n" +
-                    "4: Gå tilbage");
+            System.out.println(CYAN + FED + "Svømmeresultater:" + RESET);
+            System.out.println("1: Registrer resultat");
+            System.out.println("2: Træningsresultater");
+            System.out.println("3: Konkurrenceresultater");
+            System.out.println("4: Gå tilbage ⏮️");
 
             String choice = input.nextLine();
             switch (choice) {
@@ -61,7 +66,7 @@ public class Systemmenu {
         while (inRegMenu) {
             System.out.println("1. Træningsresultat");
             System.out.println("2. Konkurrenceresultat");
-            System.out.println("3. Gå tilbage");
+            System.out.println("3. Gå tilbage ⏮️");
             String choice = input.nextLine();
 
             switch (choice) {
@@ -79,7 +84,7 @@ public class Systemmenu {
             System.out.println("1. Alle");
             System.out.println("2. Top 5 Junior");
             System.out.println("3. Top 5 Senior");
-            System.out.println("4. Gå tilbage");
+            System.out.println("4. Gå tilbage ⏮️");
             String choice = input.nextLine();
 
             switch (choice) {
@@ -99,14 +104,14 @@ public class Systemmenu {
             System.out.println("2. Crawl");
             System.out.println("3. Rygcrawl");
             System.out.println("4. Brystsvømning");
-            System.out.println("5. Gå tilbage");
+            System.out.println("5. Gå tilbage ⏮️");
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> resultlist.getButterflyTopFiveJunior();
-                case "2" -> resultlist.getCrawlTopFiveJunior();
-                case "3" -> resultlist.getRygcrawlTopFiveJunior();
-                case "4" -> resultlist.getBrystTopFiveJunior();
+                case "1" -> placement.getButterflyTopFiveJunior();
+                case "2" -> placement.getCrawlTopFiveJunior();
+                case "3" -> placement.getRygcrawlTopFiveJunior();
+                case "4" -> placement.getBrystTopFiveJunior();
                 case "5" -> inJuniorMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }
@@ -120,14 +125,14 @@ public class Systemmenu {
             System.out.println("2. Crawl");
             System.out.println("3. Rygcrawl");
             System.out.println("4. Brystsvømning");
-            System.out.println("5. Gå tilbage");
+            System.out.println("5. Gå tilbage ⏮️");
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1" -> resultlist.getButterflyTopFiveSenior();
-                case "2" -> resultlist.getCrawlTopFiveSenior();
-                case "3" -> resultlist.getRygcrawlTopFiveSenior();
-                case "4" -> resultlist.getBrystTopFiveSenior();
+                case "1" -> placement.getButterflyTopFiveSenior();
+                case "2" -> placement.getCrawlTopFiveSenior();
+                case "3" -> placement.getRygcrawlTopFiveSenior();
+                case "4" -> placement.getBrystTopFiveSenior();
                 case "5" -> inSeniorMenu = false;
                 default -> System.out.println("Ugyldigt valg");
             }
@@ -139,10 +144,10 @@ public class Systemmenu {
         boolean running = true;
 
         while (running){
-            System.out.println("\nØkonomi:\n" +
-                    "1: Vis samlet kontingentbetaling\n" +
-                    "2: Vis medlemmer i retance\n" +
-                    "3: Gå tilbage");
+            System.out.println(CYAN + FED + "Økonomi:" + RESET);
+            System.out.println("1: Vis samlet kontingentbetaling");
+            System.out.println("2: Vis medlemmer i retance");
+            System.out.println("3: Gå tilbage ⏮️");
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> membersList.showExpectedPayments();

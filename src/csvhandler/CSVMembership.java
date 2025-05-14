@@ -10,7 +10,6 @@ public class CSVMembership implements CSVHandler {
     //Metode til at læse CSV fil og skrive det til Arraylisten.
     @Override
     public <T> void readCSV (String filepath, List<T> fromArray) {
-        //Bruger scanner til at læste filen
         try (Scanner reader = new Scanner(new File(filepath))) {
             //Læser næste (i dette tilfælde den første) linje i filen (Header linjen):
             reader.nextLine();
