@@ -29,42 +29,42 @@ public class UI {
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> {
-                    System.out.println("Skriv pinkode... (4 cifre)");
+                    System.out.println("🔐Skriv pinkode... (4 cifre)");
                     try {
                         int password = input.nextInt();
                         input.nextLine();
                         if (password == 1234) {
                             sm.Chairman();
                         } else {
-                            System.out.println("Forkert kodeord");
+                            System.out.println("❌ Forkert kodeord ❌");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("Kun tal...");
                     }
                 }
                 case "2" -> {
-                    System.out.println("Skriv pinkode... (4 cifre)");
+                    System.out.println("🔐Skriv pinkode... (4 cifre)");
                     try {
                         int password = input.nextInt();
                         input.nextLine();
                         if (password == 1234) {
                             sm.Trainer();
                         } else {
-                            System.out.println("Forkert kodeord");
+                            System.out.println("❌ Forkert kodeord ❌");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("Kun tal...");
                     }
                 }
                 case "3" -> {
-                    System.out.println("Skriv pinkode... (4 cifre)");
+                    System.out.println("🔐Skriv pinkode... (4 cifre)");
                     try {
                         int password = input.nextInt();
                         input.nextLine();
                         if (password == 1234) {
                             sm.Cashier();
                         } else {
-                            System.out.println("Forkert kodeord");
+                            System.out.println("❌ Forkert kodeord ❌");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("Kun tal...");
@@ -76,7 +76,7 @@ public class UI {
                     running = false;
                     input.close();
                 }
-                default -> System.out.println("Ugyldig input, prøv igen");
+                default -> System.out.println("Ugyldig input, prøv igen 🔁");
             }
         }
     }
