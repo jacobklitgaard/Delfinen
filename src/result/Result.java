@@ -18,16 +18,8 @@ public class Result {
         this.discipline = discipline;
     }
 
-    public int getTime() {
-        return time;
-    }
-
     public String getGroup() {
         return group;
-    }
-
-    public String getDate(){
-        return date;
     }
 
     public String getDiscipline(){

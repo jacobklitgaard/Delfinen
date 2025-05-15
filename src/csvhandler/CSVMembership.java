@@ -48,23 +48,15 @@ public class CSVMembership implements CSVHandler {
             System.out.println("Fil ikke fundet");
         }
     }
-    //Metode til at skrive data fra en Arraylist til CSV fil.
-    @Override
+    //Metode til at skrive data fra et objekt til CSV fil.
     //"T" er en generic, der tager imod alt data. (En slags placeholder til parameteren i List).
     //T extender CSVWritable, da der er en metode til at toCSV i interfacet. Dette giver adgang til metoden
     //  selvom T ikke har en toCSV metode. (fx ligesom Membership klassen)
-    public <T extends CSVWriteable> void writeCSV(String filepath, List<T> data) {
-        //Åbner printwriter som skriver til filen, med append true, for at skrive videre på næste linje
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
-            //Læser arraylisten
-            for (T s : data) {
-                //Skriver data fra Arraylisten ind i csv filen, med toCSV metoden.
-                //Dette kan lade sig gøre, da vi kun opretter et objekt af gangen. Derved skal vi kun
-                //  bruge en linje data som skal skrives ind i filen. (sikkert en smartere/sejere måde at gøre det på men det her er nemmest).
-                //Derfor bruges der en ny arrayliste når writeren skal køre, da arraylisten kun skal opbevare data i et index.
-                writer.println(s.toCSV());
-            }
-        } catch (IOException b) {
+    @Override
+    public <T extends CSVWriteable> void writeCSV(String filepath, T m) {
+        try(PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
+            writer.println(m.toCSV());
+        } catch (IOException e) {
             System.out.println("Fil ikke fundet");
         }
     }

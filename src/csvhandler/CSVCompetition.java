@@ -38,12 +38,10 @@ public class CSVCompetition implements CSVHandler {
     }
 
     @Override
-    public <T extends CSVWriteable> void writeCSV(String filepath, List<T> data) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
-            for (T t : data) {
-                writer.println(t.toCSV());
-            }
-        } catch (IOException b) {
+    public <T extends CSVWriteable> void writeCSV(String filepath, T m) {
+        try(PrintWriter writer = new PrintWriter(new FileWriter(filepath, true))) {
+            writer.println(m.toCSV());
+        } catch (IOException e) {
             System.out.println("Fil ikke fundet");
         }
     }

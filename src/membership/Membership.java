@@ -2,9 +2,6 @@ package membership;
 
 import csvhandler.CSVWriteable;
 
-import java.time.LocalDate;
-import java.util.List;
-
 public class Membership implements CSVWriteable {
     int ID;
     String name;
@@ -34,28 +31,8 @@ public class Membership implements CSVWriteable {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public String getAgeCategory() {
-        return ageCategory;
-    }
-
-    public boolean isDebt() {
-        return debt;
-    }
-
     public boolean hasDebt() {
         return debt;
-    }
-
-    public boolean isCompetitive() {
-        return competitive;
     }
 
     // Regner ud hvilken gruppe medlemmet er i

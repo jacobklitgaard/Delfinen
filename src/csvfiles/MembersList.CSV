@@ -40,3 +40,5 @@ ID,Navn,Alder,Alderskategori,Aktiv,Restance,Konkurrencesvømmer
 39,Marie Bækgaard,14,Ung,true,true,true
 40,Valdemar Hald,11,Ung,false,false,false
 41,Nynne,25,Voksen,true,false,true
+42,Obama,69,Senior,true,false,false
+43,Sebastian,25,Voksen,false,true,false

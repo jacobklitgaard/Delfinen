@@ -11,19 +11,12 @@ public class CompetitionResult extends Result implements CSVWriteable {        /
         this.competition = competition;
         this.rank = rank;
     }
+
     @Override
     public String toCSV() {
         return ID + "," + name + "," + group + "," + discipline + "," + time + "," + date + "," + competition + "," + rank;
     }
 
-
-    public String getCompetition() {
-        return competition;
-    }
-
-    public int getRank() {
-        return rank;
-    }
     @Override
     public String toString() {
         final String RESET = "\u001B[0m";
@@ -38,7 +31,7 @@ public class CompetitionResult extends Result implements CSVWriteable {        /
                         "  Svømmetid  : %d sekunder\n" +
                         "  Dato       : %s\n" +
                         "  Stævne     : %s\n" +
-                        "  Pladsering : %d",
+                        "  Placering : %d",
                 ID, name, group, discipline, time, date, competition, rank
         );
     }

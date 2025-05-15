@@ -9,5 +9,5 @@ public interface CSVHandler {
     //Skriver data fra Arraylisten "data" og skriver det til CSV filen.
     //<T> er en placeholder for objektet i Arraylisten. (Tillader at bruge alle objekter i Arraylisten).
     //Extender CSVWritable for at bruge toCSV metoden. (Se CSVMembership)
-    <T extends CSVWriteable> void writeCSV(String filepath, List<T> data);
+    <T extends CSVWriteable> void writeCSV(String filepath, T o);
 }

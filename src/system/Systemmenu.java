@@ -1,6 +1,5 @@
 package system;
 
-import jdk.swing.interop.SwingInterOpUtils;
 import membership.MembersList;
 import result.Placement;
 import result.ResultList;
@@ -14,14 +13,15 @@ public class Systemmenu {
     public static final String GRØN = "\u001B[32m";    // Grøn tekst
     public static final String GUL = "\u001B[33m";     // Gul tekst
     public static final String CYAN = "\u001B[36m";    // Cyan tekst
-
     public static final String FED = "\u001B[1m";
 
-    Scanner input = new Scanner(System.in);
-    ResultList resultlist = new ResultList();
-    Placement placement = new Placement();
+    private final Scanner input = new Scanner(System.in);
+    private final ResultList resultlist = new ResultList();
+    private final Placement placement = new Placement();
 
     public void Chairman() {
+        String chairmanPIN = "1234";
+        if (!verifyPin(chairmanPIN)) return;
 
         MembersList createMembers = new MembersList();
         //UI til Formand
@@ -43,6 +43,8 @@ public class Systemmenu {
 
     public void Trainer() {
         //UI til træner
+        String trainerPin = "1000";
+        if (!verifyPin(trainerPin)) return;
         Boolean running = true;
         while (running) {
             System.out.println(CYAN + FED + "Svømmeresultater:" + RESET);
@@ -82,7 +84,7 @@ public class Systemmenu {
     public void training(Scanner input) {
         boolean inTrainingMenu = true;
         while (inTrainingMenu) {
-            System.out.println("1. Alle");
+            System.out.println(GUL + "1. Alle" + RESET);
             System.out.println("2. Top 5 Junior");
             System.out.println("3. Top 5 Senior");
             System.out.println("4. Gå tilbage ⏮️");
@@ -140,14 +142,16 @@ public class Systemmenu {
         }
     }
 
-    public void Cashier() { //UI til Kassere
+    public void Cashier() {//UI til Kassere
+        String cashierPin = "0000";
+        if (!verifyPin(cashierPin)) return;
         MembersList membersList = new MembersList();
         boolean running = true;
 
         while (running){
             System.out.println(CYAN + FED + "Økonomi:" + RESET);
             System.out.println("1: Vis samlet kontingentbetaling");
-            System.out.println("2: Vis medlemmer i retance");
+            System.out.println("2: Vis medlemmer i restance");
             System.out.println("3: Gå tilbage ⏮️");
             String choice = input.nextLine();
             switch (choice) {
@@ -157,5 +161,15 @@ public class Systemmenu {
                 default -> System.out.println("Vælg 1, 2 eller 3");
             }
         }
+    }
+    private boolean verifyPin(String PIN){
+
+        System.out.println( GRØN + "Indtast PIN" + RESET);
+        String enteredPin = input.nextLine();
+        if (enteredPin.equals(PIN)){
+            return true;
+        } else {
+            System.out.println(RØD + FED + "FORKERT PIN" + RESET);
+        } return false;
     }
 }

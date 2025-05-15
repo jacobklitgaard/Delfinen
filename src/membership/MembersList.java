@@ -3,6 +3,7 @@ package membership;
 import csvhandler.CSVMembership;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,23 +12,15 @@ public class MembersList {
     public static final String GRØN = "\u001B[32m";
     public static final String LYSRØD ="\u001B[91m";
 
-    private final List<Membership> memberslist = new ArrayList<>();
-
-  public List<Membership> getMembersList() {
-        return memberslist;
-    }
-
     //Metode til at oprette medlemmer
     public void createMember() {
         //Ny Arrayliste til at lagre CSV filens data til at generere ID nummer ud fra Arraylistens index
         List<Membership> getIDArray = new ArrayList<>();
-        CSVMembership reader = new CSVMembership();
 
         //Læser CSV filens data til 'memberslist' Arraylisten.
+        CSVMembership reader = new CSVMembership();
         reader.readCSV("src/CSVFiles/MembersList.CSV", getIDArray);
 
-        //Ny Arrayliste til at lagre et nyt medlem
-        List<Membership> createMember = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         //Gemmer 'memberslist' størrelse af index + 1
@@ -39,8 +32,19 @@ public class MembersList {
 
         //Gemmer alder
         System.out.print("Alder: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+
+        //Variabler der bliver fanget af try catch
+        int age;
+        while (true) {
+            try {
+                age = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Indtast tal: ");
+                scanner.nextLine();
+            }
+        }
 
         //Gemmer aktiv
         System.out.print("Er medlemmet aktivt? (j/n): ");
@@ -77,12 +81,9 @@ public class MembersList {
         if (choiceComp.equals("j")) {
             competitive = true;
         }
-        //Tildeler de gemte variabler til et Membership objekt, og tilføjer det til 'opretmedlem' Arraylisten
-        createMember.add(new Membership(ID, name, age, active, debt, competitive));
-
-        //Skriver 'opretmedlem' listen ind i CSV filen
+        //Tildeler de gemte variabler til et Membership objekt, og skriver det til CSV filen (Tjek CSVMembership.writeCSV Metode)
         CSVMembership writer = new CSVMembership();
-        writer.writeCSV("src/CSVFiles/MembersList.CSV", createMember);
+        writer.writeCSV("src/CSVFiles/MembersList.CSV", new Membership(ID, name, age, active, debt, competitive));
 
         System.out.println(GRØN + "Medlem oprettet." + RESET);
 
