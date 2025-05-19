@@ -3,14 +3,14 @@ package membership;
 import csvhandler.CSVWriteable;
 
 public class Membership implements CSVWriteable {
-    int ID;
-    String name;
-    int age;
-    double fee;
-    boolean active;
-    String ageCategory;
-    boolean debt;
-    boolean competitive;
+    private int ID;
+    private String name;
+    private int age;
+    private double fee;
+    private boolean active;
+    private String ageCategory;
+    private boolean debt;
+    private boolean competitive;
 
     public Membership(int ID, String name, int age, boolean active, boolean debt, boolean competitive) {
         this.ID = ID;
@@ -49,7 +49,7 @@ public class Membership implements CSVWriteable {
         return ageCategory;
     }
 
-    // Regner ud hvad medlemmet skal betale af kontigent
+    // Regner ud hvad medlemmet skal betale af kontingent
     public double calculateFee(int age){
 
         if(!active){
@@ -66,7 +66,7 @@ public class Membership implements CSVWriteable {
           return 1200;
         }
     }
-
+// Regner ud hvilken gruppe medlemmet er i
     public String group(){
         if(age < 18){
             return "Junior";
@@ -78,9 +78,13 @@ public class Membership implements CSVWriteable {
 
     @Override
     public String toString() {
+        final String FED = "\u001B[1m";
+        final String CYAN = "\u001B[36m";
+        final String RESET = "\u001B[0m";
+
         return String.format(
-                "_____________________" +
-                "\n%-20s: %d" +
+                FED + "_____________________" + RESET +
+                        CYAN + "\n%-20s: %d" + RESET +
                         "\n%-20s: %s" +
                         "\n%-20s: %d år" +
                         "\n%-20s: %.2f kr." +

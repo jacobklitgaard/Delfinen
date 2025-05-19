@@ -37,8 +37,7 @@ public class ResultList {
                 ID = input.nextInt();
                 input.nextLine();
 
-                //Membership foundMember = null;
-                for (Membership m : midlertidlig) { // Get the list of members from MembersList
+                for (Membership m : midlertidlig) {
                     if (m.getID() == ID) {
                         foundMember = m;
                         break;
@@ -119,8 +118,7 @@ public class ResultList {
                 ID = input.nextInt();
                 input.nextLine();
 
-                //Membership foundMember = null;
-                for (Membership m : midlertidlig) { // Get the list of members from MembersList
+                for (Membership m : midlertidlig) {
                     if (m.getID() == ID) {
                         foundMember = m;
                         break;

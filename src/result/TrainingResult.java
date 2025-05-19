@@ -1,6 +1,6 @@
 package result;
+
 import csvhandler.CSVWriteable;
-import membership.Membership;
 
 public class TrainingResult extends Result implements Comparable<TrainingResult>, CSVWriteable {      //til oprettelse af træningsresultater
 
@@ -20,9 +20,10 @@ public class TrainingResult extends Result implements Comparable<TrainingResult>
     public String toString() {
        final String RESET = "\u001B[0m";
        final String CYAN = "\u001B[36m";
+       final String FED = "\u001B[1m";
 
        return String.format(
-               "---------------------------------\n" +
+               FED + "---------------------------------\n" + RESET +
                 CYAN + "  ID         : %d\n" + RESET +
                        "  Navn       : %s\n" +
                        "  Gruppe     : %s\n" +

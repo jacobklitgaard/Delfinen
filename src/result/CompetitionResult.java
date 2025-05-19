@@ -21,9 +21,10 @@ public class CompetitionResult extends Result implements CSVWriteable {        /
     public String toString() {
         final String RESET = "\u001B[0m";
         final String CYAN = "\u001B[36m";
+        final String FED = "\u001B[1m";
 
         return String.format(
-                "---------------------------------\n" +
+                FED + "---------------------------------\n" + RESET +
                  CYAN + "  ID         : %d\n" + RESET +
                         "  Navn       : %s\n" +
                         "  Gruppe     : %s\n" +
@@ -31,7 +32,7 @@ public class CompetitionResult extends Result implements CSVWriteable {        /
                         "  Svømmetid  : %d sekunder\n" +
                         "  Dato       : %s\n" +
                         "  Stævne     : %s\n" +
-                        "  Placering : %d",
+                        "  Placering  : %d",
                 ID, name, group, discipline, time, date, competition, rank
         );
     }

@@ -11,6 +11,8 @@ public class MembersList {
     public static final String RESET = "\u001B[0m";
     public static final String GRØN = "\u001B[32m";
     public static final String LYSRØD ="\u001B[91m";
+    public static final String RØD = "\u001B[31m";
+    public static final String FED = "\u001B[1m";// Rød tekst
 
     //Metode til at oprette medlemmer
     public void createMember() {
@@ -41,7 +43,7 @@ public class MembersList {
                 scanner.nextLine();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Indtast tal: ");
+                System.out.println(RØD + "Indtast tal: " + RESET);
                 scanner.nextLine();
             }
         }
@@ -51,7 +53,7 @@ public class MembersList {
         String choiceAP = scanner.nextLine().trim().toLowerCase();
         boolean active = false;
         while (!choiceAP.equals("j") && !choiceAP.equals("n")) {
-            System.out.println("tast j/n");
+            System.out.println(LYSRØD + "tast j/n" + RESET);
             choiceAP = scanner.nextLine().trim().toLowerCase();
         }
         if (choiceAP.equals("j")) {
@@ -75,7 +77,7 @@ public class MembersList {
         String choiceComp = scanner.nextLine().trim().toLowerCase();
         boolean competitive = false;
         while (!choiceComp.equals("j") && !choiceComp.equals("n")) {
-            System.out.println("tast j/n");
+            System.out.println(RØD + "tast j/n" + RESET);
             choiceComp = scanner.nextLine().trim().toLowerCase();
         }
         if (choiceComp.equals("j")) {
@@ -104,8 +106,8 @@ public class MembersList {
             System.out.println(m);
 
         }
-        System.out.println(GRØN + "\n_____________________" +
-                "\nAntallet af medlemmer i alt: " + visListe.size() +
+        System.out.println(FED + GRØN + "\n_____________________" + RESET +
+                GRØN + "\nAntallet af medlemmer i alt: " + visListe.size() + FED +
                 "\n_____________________"+ RESET);
     }
 
@@ -125,7 +127,7 @@ public class MembersList {
             }
         }
         System.out.printf("Samlet forventet kontingentbetaling: %.2f kr.\n", total, "Inklusiv restance"); //Udskriver beløb i kroner
-        System.out.printf("Samlet restance beløb: %.2f kr. \n", totalDebt);
+        System.out.printf(GRØN + "Samlet restance beløb: %.2f kr. \n", totalDebt + RESET);
     }
 
     public void showMembersInDebt() {
@@ -142,8 +144,8 @@ public class MembersList {
                 count++;
             }
         }
-        System.out.println("_____________________" +
-                "\nAntallet af medlemmer i restance: " + count);
+        System.out.println(FED + "_____________________" + RESET +
+                GRØN + "\nAntallet af medlemmer i restance: " + RESET + RØD + count + RESET);
 
     }
 

@@ -30,13 +30,13 @@ public class Systemmenu {
             System.out.println(CYAN + FED + "Håndter medlemmer:" + RESET);
             System.out.println ("1: Opret medlem");
             System.out.println ("2: Vis medlemmer");
-            System.out.println ("3: Gå tilbage ⏮️");
+            System.out.println (FED + "3: Gå tilbage ⏮️" + RESET);
             String choice = input.nextLine();
             switch (choice) {
                 case "1" -> createMembers.createMember();
                 case "2" -> createMembers.showMembers();
                 case "3" -> running = false;
-                default -> System.out.println("Ugyldigt valg");
+                default -> System.out.println(FED + RØD + "Ugyldigt valg" + RESET);
             }
         }
     }
@@ -51,7 +51,7 @@ public class Systemmenu {
             System.out.println("1: Registrer resultat");
             System.out.println("2: Træningsresultater");
             System.out.println("3: Konkurrenceresultater");
-            System.out.println("4: Gå tilbage ⏮️");
+            System.out.println(FED + "4: Gå tilbage ⏮️" + RESET);
 
             String choice = input.nextLine();
             switch (choice) {
@@ -59,7 +59,7 @@ public class Systemmenu {
                 case "2" -> training(input);
                 case "3" -> resultlist.showCompetitionResults();
                 case "4" -> running = false;
-                default -> System.out.println("Ugyldigt valg");
+                default -> System.out.println(FED + RØD + "Ugyldigt valg" + RESET);
             }
         }
     }
