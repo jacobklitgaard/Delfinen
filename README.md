@@ -11,8 +11,7 @@ Maiken Zachariasen - MaikenZachariasen
 Maya Aalborg - Mayaaalborg
 
 
-**Passwords hhv. Formand, Træner og Kasserer
-**
+Passwords hhv. Formand, Træner og Kasserer
 
 Formand: 1234
 
