@@ -3,8 +3,8 @@ package result;
 import csvhandler.CSVWriteable;
 
 public class CompetitionResult extends Result implements CSVWriteable {        //til oprettelse af konkurrenceresultater
-    private String competition;
-    private int rank;
+    private final String competition;
+    private final int rank;
 
     public CompetitionResult(int ID, String name, String group, String discipline, int time, String date, String competition, int rank) {
         super(ID, name, group, discipline, time, date);

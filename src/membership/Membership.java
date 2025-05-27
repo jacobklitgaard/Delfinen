@@ -3,14 +3,14 @@ package membership;
 import csvhandler.CSVWriteable;
 
 public class Membership implements CSVWriteable {
-    private int ID;
-    private String name;
-    private int age;
-    private double fee;
-    private boolean active;
+    private final int ID;
+    private final String name;
+    private final int age;
+    private final double fee;
+    private final boolean active;
     private String ageCategory;
-    private boolean debt;
-    private boolean competitive;
+    private final boolean debt;
+    private final boolean competitive;
 
     public Membership(int ID, String name, int age, boolean active, boolean debt, boolean competitive) {
         this.ID = ID;

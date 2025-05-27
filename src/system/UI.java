@@ -13,7 +13,7 @@ public class UI {
     public static final String BLÅ = "\u001B[94m";
 
 
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
     Systemmenu sm = new Systemmenu();
 
     public void start() {

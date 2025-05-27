@@ -127,7 +127,7 @@ public class MembersList {
             }
         }
         System.out.printf("Samlet forventet kontingentbetaling: %.2f kr.\n", total, "Inklusiv restance"); //Udskriver beløb i kroner
-        System.out.printf(GRØN + "Samlet restance beløb: %.2f kr. \n", totalDebt + RESET);
+        System.out.printf(GRØN + "Samlet restance beløb: %.2f kr. \n", totalDebt);
     }
 
     public void showMembersInDebt() {
